@@ -1,0 +1,21 @@
+Base path: /Applications/Unity/Unity.app/Contents
+Pipe name: \\.\pipe\UnityShaderCompiler-1--1598422572
+Cmd: getPlatforms
+Cmd: preprocess
+  insize=10981 outsize=699 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=5604 outsize=4292 kw=SAMPLES_VERY_LOW DISTANCE_CUTOFF_ON LUM_CONTRIB_ON CUSTOM_COLOR_ON NOISE_ON ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=5604 outsize=6 kw=SAMPLES_VERY_LOW DISTANCE_CUTOFF_ON LUM_CONTRIB_ON CUSTOM_COLOR_ON NOISE_ON ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=5067 outsize=1367 kw=CUSTOM_COLOR_ON ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=5067 outsize=6 kw=CUSTOM_COLOR_ON ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=5945 outsize=2114 kw=CUSTOM_COLOR_ON ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=5945 outsize=6 kw=CUSTOM_COLOR_ON ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=4751 outsize=470 kw=CUSTOM_COLOR_ON ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=4751 outsize=6 kw=CUSTOM_COLOR_ON ok=1
