@@ -46,22 +46,17 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Builder.cs" />
-     <Compile Include="Assets\MoveSettings.cs" />
-     <Compile Include="Assets\SSAO Pro\Demo\Scripts\DemoUI.cs" />
-     <Compile Include="Assets\SSAO Pro\Demo\Scripts\RotateAround.cs" />
-     <Compile Include="Assets\SSAO Pro\Scripts\SSAOPro.cs" />
-     <Compile Include="Assets\scene 1\Camera1.cs" />
-     <Compile Include="Assets\scene 1\Flag.cs" />
-     <Compile Include="Assets\scene 1\GameOverManager.cs" />
-     <Compile Include="Assets\scene 1\Move.cs" />
-     <Compile Include="Assets\scene 1\NewBehaviourScript.cs" />
-     <Compile Include="Assets\scene 1\Quad.cs" />
-     <Compile Include="Assets\scene 1\Spawner.cs" />
-     <Compile Include="Assets\scene 1\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
-     <None Include="Assets\SSAO Pro\Readme.txt" />
-     <None Include="Assets\SSAO Pro\Shaders\SSAOPro.shader" />
-     <None Include="Assets\SSAO Pro\Changelog.txt" />
+     <Compile Include="Assets\Scene 1\BackSpawn.cs" />
+     <Compile Include="Assets\Scene 1\Bar.cs" />
+     <Compile Include="Assets\Scene 1\Camera1.cs" />
+     <Compile Include="Assets\Scene 1\Death.cs" />
+     <Compile Include="Assets\Scene 1\FrontSpawn.cs" />
+     <Compile Include="Assets\Scene 1\GameOverManager.cs" />
+     <Compile Include="Assets\Scene 1\GroundAdd.cs" />
+     <Compile Include="Assets\Scene 1\Move.cs" />
+     <Compile Include="Assets\Scene 1\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Scene 2\Builder.cs" />
+     <Compile Include="Assets\Scene 2\MoveSettings.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
