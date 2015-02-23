@@ -92,6 +92,7 @@ public class MoveSettings : MonoBehaviour {
 	
 			spin.transform.Rotate(0,-(current.x - newpos.x) * sensitivity, 0);
 
+			//set rotation angle limits
 			float temprot = rot.transform.eulerAngles.x;
 			if(temprot > 180){temprot -= 360;}
 			temprot = Mathf.Max (Mathf.Min (80,temprot),-80);
@@ -99,10 +100,12 @@ public class MoveSettings : MonoBehaviour {
 				rot.transform.Rotate((current.y - newpos.y) * sensitivity, 0,0);
 			}
 
+			//check if it is a swipe
 			if (current.y - start.y > clickdist || current.y - start.y < -clickdist || 
 			current.x - start.x > clickdist || current.x - start.x < -clickdist) {
 				click = false;
 				}
+
 			} else {
 			swiping = true;
 			click = true;
@@ -114,6 +117,7 @@ public class MoveSettings : MonoBehaviour {
 	public void SwipeEnd(){
 		swiping = false;
 		if (click) {
+			current = start;
 			if(add){
 				builder.GetComponent<Builder>().AddBlock();
 			}else{
