@@ -5,17 +5,17 @@ public class Move : MonoBehaviour {
 
 	bool alive;
 	public float yvelocity;
-	float xvelocity;
+	public float xvelocity;
 	float rotatevelocity;
 	public GameObject bar;
 	GameObject child;
-	float zmouse;
+	public float zmouse;
 	// Use this for initialization
 	void Start () {
 		alive = true;
 		child = transform.GetChild(0).gameObject;
 		zmouse = 0;
-		yvelocity = 0.5f;
+		yvelocity = 0.6f;
 		xvelocity = 0f;
 	}
 	
@@ -27,6 +27,9 @@ public class Move : MonoBehaviour {
 		}
 	}
 
+
+
+
 	void MovePlayer(){
 		if (Input.GetMouseButton(0)) {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -37,18 +40,19 @@ public class Move : MonoBehaviour {
 				}
 			}
 		}
-		yvelocity -= 0.005f;
+		yvelocity -= 0.006f;
 		xvelocity = (zmouse - transform.position.z) * 0.3f;
-		float angle = -xvelocity * 90f;
-		float angle2 = child.transform.eulerAngles.y;
-		if (angle > 180) {angle -= 360;}
-		if (angle2 > 180) {angle2 -= 360;}
-		rotatevelocity = (angle - angle2) * 0.3f;
-		child.transform.Rotate (0, rotatevelocity, 0);
+
+		//update rotation and position
+		float targetangle = -xvelocity * 90f;
+		float currentangle = child.transform.eulerAngles.y;
+		if (targetangle > 180) {targetangle -= 360;}
+		if (currentangle > 180) {currentangle -= 360;}
+		rotatevelocity = (targetangle - currentangle) * 0.3f;
+		child.transform.Rotate (0 ,rotatevelocity, 0);
 		transform.Translate(yvelocity, 0, xvelocity);
 	}
-
-
+	
 	void CheckDead(){
 		if ((bar.transform.position.x - transform.position.x) > 9) {
 			alive = false;

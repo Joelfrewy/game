@@ -7,9 +7,9 @@ public class Death : MonoBehaviour {
 	public bool end;
 	public bool stopped;
 	float yvelocity;
-	float xrotatevelocity;
+	//float xrotatevelocity;
 	float yrotatevelocity;
-	float zrotatevelocity;
+	//float zrotatevelocity;
 	float deathtime;
 	public GameObject bar;
 	GameObject child;
@@ -36,8 +36,8 @@ public class Death : MonoBehaviour {
 		deathtime = Time.time;
 		yvelocity = yvel;
 		yrotatevelocity = yrotvel;
-		xrotatevelocity = 0;
-		zrotatevelocity = 0;
+		//xrotatevelocity = 0;
+		//zrotatevelocity = 0;
 	}
 
 	void DeathLoop(){
@@ -49,9 +49,10 @@ public class Death : MonoBehaviour {
 			bar.GetComponent<Bar>().velocity = yvelocity;
 		}
 		yrotatevelocity += Random.Range (-0.6f,0.6f);
-		xrotatevelocity += Random.Range (-0.6f,0.6f);
-		zrotatevelocity += Random.Range (-0.6f,0.6f);
-		child.transform.Rotate (xrotatevelocity, yrotatevelocity, zrotatevelocity);
+		//xrotatevelocity += Random.Range (-0.6f,0.6f);
+		//zrotatevelocity += Random.Range (-0.6f,0.6f);
+		//child.transform.Rotate (xrotatevelocity, yrotatevelocity, zrotatevelocity);
+		child.transform.Rotate (0, yrotatevelocity, 0);
 		yvelocity -= 0.005f;
 		transform.Translate(yvelocity, 0, 0);
 	}

@@ -6,33 +6,34 @@ public class MoveSettings : MonoBehaviour {
 
 	public GameObject spin;
 	public GameObject rot;
-	public float sensitivity = 0.5f;
+	public GameObject builder;
+
+	public float sensitivity;
 	public Button addbutton;
 	public Button rembutton;
-	public GameObject builder;
+
+
 	public bool click;
 	public float clickdist = 2f;
+
 	public bool add = true;
-	public Vector2 start;
 	public Vector2 current;
 
 	bool swiping;
-	float startspin;
-	float startrot;
-
 	bool zooming;
 	float touchdist;
 	// Use this for initialization
 	void Start () {
+		click = true;
 		swiping = false;
 		zooming = false;
+		sensitivity = Camera.main.orthographicSize * 0.02f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.touchCount >= 2) {
-						swiping = false;
-				
+			swiping = false;
 			Zoom ();
 		} else if (Input.touchCount == 1) {
 			if (!zooming)
@@ -52,6 +53,7 @@ public class MoveSettings : MonoBehaviour {
 		if (zooming) {
 			Camera.main.orthographicSize += (touchdist - newdist) * 0.1f;
 			Camera.main.orthographicSize = Mathf.Max (Mathf.Min (30,Camera.main.orthographicSize),2);
+			sensitivity = Camera.main.orthographicSize * 0.02f;
 		} else {
 			zooming = true;
 		}
@@ -88,7 +90,8 @@ public class MoveSettings : MonoBehaviour {
 
 	public void Swipe(){
 		Vector2 newpos = Input.GetTouch (0).position;
-		if (swiping) {
+		swiping = true;
+		if (Input.GetTouch(0).phase == TouchPhase.Moved) {
 	
 			spin.transform.Rotate(0,-(current.x - newpos.x) * sensitivity, 0);
 
@@ -99,30 +102,20 @@ public class MoveSettings : MonoBehaviour {
 			if(temprot < 80 && current.y > newpos.y || temprot > -80 && current.y < newpos.y){
 				rot.transform.Rotate((current.y - newpos.y) * sensitivity, 0,0);
 			}
-
-			//check if it is a swipe
-			if (current.y - start.y > clickdist || current.y - start.y < -clickdist || 
-			current.x - start.x > clickdist || current.x - start.x < -clickdist) {
-				click = false;
-				}
-
-			} else {
-			swiping = true;
-			click = true;
-			start = Input.GetTouch (0).position;
-			}
-			current = newpos;
+		click = false;
 		}
+		current = newpos;
+	}
 
 	public void SwipeEnd(){
-		swiping = false;
 		if (click) {
-			current = start;
 			if(add){
 				builder.GetComponent<Builder>().AddBlock();
 			}else{
 				builder.GetComponent<Builder>().RemoveBlock();
 			}
 		}
+		swiping = false;
+		click = true;
 	}
 }

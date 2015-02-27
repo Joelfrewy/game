@@ -50,6 +50,8 @@
      <Compile Include="Assets\Scene 1\Bar.cs" />
      <Compile Include="Assets\Scene 1\Camera1.cs" />
      <Compile Include="Assets\Scene 1\Death.cs" />
+     <Compile Include="Assets\Scene 1\Flag.cs" />
+     <Compile Include="Assets\Scene 1\FlagSpawn.cs" />
      <Compile Include="Assets\Scene 1\FrontSpawn.cs" />
      <Compile Include="Assets\Scene 1\GameOverManager.cs" />
      <Compile Include="Assets\Scene 1\GroundAdd.cs" />
